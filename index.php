@@ -16,7 +16,9 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
     switch($urlRoute){
         case "personas": 
             $res = obtenerPersonas();
-            print_r($res);
+            #print('{ "vector":');
+            print_r( json_encode($res) );
+            #print('}');
         default ;
     }
 
