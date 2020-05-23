@@ -12,10 +12,17 @@ if($_SERVER['REQUEST_METHOD']=='GET'){
 
     $urlRoute = $_GET['url'];
     #print($urlRoute);
+    $CI = intval(preg_replace('/[^0-9]+/','',$urlRoute),10);
+    #print($numero);
 
     switch($urlRoute){
         case "personas": 
             $res = obtenerPersonas();
+            #print('{ "vector":');
+            print_r( json_encode($res) );
+            #print('}');
+        case "personas/$CI": 
+            $res = obtenerPersonasCi($CI);
             #print('{ "vector":');
             print_r( json_encode($res) );
             #print('}');
