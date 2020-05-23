@@ -4,13 +4,22 @@
     # $resultado = obtenerRegistros($query);
     # print_r($resultado);
 
-print("Hola Mari :*");
+#print("Hola Mari :*");
+require_once('utilidades.php');
 
 if($_SERVER['REQUEST_METHOD']=='GET'){
-    echo "GET";
+    #echo "GET";
 
     $urlRoute = $_GET['url'];
-    print($urlRoute);
+    #print($urlRoute);
+
+    switch($urlRoute){
+        case "personas": 
+            $res = obtenerPersonas();
+            print_r($res);
+        default ;
+    }
+
     http_response_code(200);
 } else if($_SERVER['REQUEST_METHOD']=='POST'){
     echo "POST";
