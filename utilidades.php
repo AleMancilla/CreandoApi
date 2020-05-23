@@ -5,6 +5,6 @@
     function obtenerPersonas(){
         $consulta = 'SELECT * FROM persona';
         $res = obtenerRegistros($consulta);
-        return $res;
+        return ConvertirUTF8($res);
     }
 ?>
