@@ -22,7 +22,7 @@
         $NACIONALIDAD = $array[0]["NACIONALIDAD"];
         $SEXO= $array[0]["SEXO"];
 
-        $query = "INSERT INTO `persona` (`CI`, `NOMBRE`, `APEPATERNO`, `APEMATERNO`, `NACIONALIDAD`, `SEXO`) VALUES ('321', 'MARI', 'BELLA', 'PRINCESA', 'CELESTIAL', 'FEMENINO');";
+        $query = "INSERT INTO `persona` (`CI`, `NOMBRE`, `APEPATERNO`, `APEMATERNO`, `NACIONALIDAD`, `SEXO`) VALUES ('$CI', '$NOMBRE', '$APEPATERNO', '$APEMATERNO', '$NACIONALIDAD', '$SEXO');";
         NonQuery($query);
         return true;
     }
