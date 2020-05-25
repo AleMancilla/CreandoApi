@@ -8,11 +8,11 @@
 require_once('utilidades.php');
 
 if(isset($_GET['url'])){
-    
+    $urlRoute = $_GET['url'];
     if($_SERVER['REQUEST_METHOD']=='GET'){
         #echo "GET";
 
-        $urlRoute = $_GET['url'];
+        
         #print($urlRoute);
         $CI = intval(preg_replace('/[^0-9]+/','',$urlRoute),10);
         #print($numero);
@@ -36,11 +36,18 @@ if(isset($_GET['url'])){
         http_response_code(200);
     } else if($_SERVER['REQUEST_METHOD']=='POST'){
         $postBody = file_get_contents("php://input");
-        $convert = json_decode($postBody);
+        $convert = json_decode($postBody,true);
 
         if(json_last_error()==0){
-            print_r( $convert);
-            http_response_code(200);
+            # print_r( $convert);
+            # http_response_code(200);
+            switch($urlRoute){
+                case "personas": 
+                    CrearPersona($convert);
+                    http_response_code(200);
+                    #print('}');
+                default ;
+            }
         }else{
             http_response_code(400);
         }
